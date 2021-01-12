@@ -38,6 +38,16 @@ class App extends Component {
     this.refs.name.focus();
   };
 
+  fRemove = (i) => {
+    let datas = this.state.datas;
+    datas.splice(i, 1);
+    this.setState({
+      datas: datas
+    });
+    this.refs.myForm.reset();
+    this.refs.name.focus();
+  };
+
   render() {
     let datas = this.state.datas;
     return (
