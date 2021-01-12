@@ -24,14 +24,23 @@ class App extends Component {
     let name = this.refs.name.value;
     let address = this.refs.address.value;
 
-    let data = {
-      name,
-      address
-    };
-    datas.push(data);
+    if (this.state.act === 0) {
+      //new
+      let data = {
+        name,
+        address
+      };
+      datas.push(data);
+    } else {
+      //udpate
+      let index = this.state.index;
+      datas[index].name = name;
+      datas[index].address = address;
+    }
 
     this.setState({
-      datas: datas
+      datas: datas,
+      act: 0
     });
 
     this.refs.myForm.reset();
@@ -45,6 +54,19 @@ class App extends Component {
       datas: datas
     });
     this.refs.myForm.reset();
+    this.refs.name.focus();
+  };
+
+  fEdit = (i) => {
+    let data = this.state.datas[i];
+    this.refs.name.value = data.name;
+    this.refs.address.value = data.address;
+
+    this.setState({
+      act: 1,
+      index: i
+    });
+
     this.refs.name.focus();
   };
 
