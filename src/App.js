@@ -5,7 +5,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "React Simple CRUD Application",
+      title: "Family: Address Book",
       act: 0,
       index: "",
       datas: []
@@ -13,7 +13,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    //this.refs.name.focus();
+    this.refs.name.focus();
   }
 
   fSubmit = (e) => {
