@@ -33,6 +33,7 @@
 }
 .myList {
   list-style: none;
+  padding: 5px;
 }
 .myListButton {
   display: inline-block;
